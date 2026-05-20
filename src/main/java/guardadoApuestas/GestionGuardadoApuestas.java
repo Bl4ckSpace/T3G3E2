@@ -8,10 +8,8 @@ import java.util.ArrayList;
 public class GestionGuardadoApuestas {
 
     public void guardarApuesta(GestionApuestas gestionApuestas) {
-        ArrayList<Integer> apuesta = new ArrayList<>(5);
-
         try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("apuestas.ser"))) {
-            ArrayList<Jugador> jugadores = gestionApuestas.pedirApuestas(apuesta);
+            ArrayList<Jugador> jugadores = gestionApuestas.pedirApuestas();
             for (Jugador jugador : jugadores) {
                 oos.writeObject(jugador);
             }

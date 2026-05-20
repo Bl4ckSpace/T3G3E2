@@ -4,6 +4,7 @@ import guardadoApuestas.Jugador;
 
 import java.io.*;
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class GestionGeneracionApuesta {
 
@@ -15,6 +16,8 @@ public class GestionGeneracionApuesta {
             while (!finArchivo) {
                 try {
                     Jugador jugador = (Jugador) ois.readObject();
+                    Collections.sort(jugador.getApuesta());
+                    Collections.sort(apuestaGanadora);
 
                     if (jugador.getApuesta().equals(apuestaGanadora)) {
                         ganadores.add(jugador);
@@ -22,7 +25,7 @@ public class GestionGeneracionApuesta {
                 } catch (EOFException eofe) {
                     finArchivo = true;
                 } catch (ClassNotFoundException e) {
-                    System.out.println("No se encontró el archivo.");
+                    System.out.println("Error al deserializar el jugador.");
                 }
             }
         } catch (IOException ioe) {
@@ -33,8 +36,11 @@ public class GestionGeneracionApuesta {
 
     public ArrayList<Integer> generarApuestaGanadora() {
         ArrayList<Integer> apuesta = new ArrayList<>();
-        for (int i = 0; i < 5; i++) {
-            apuesta.add((int) ((Math.random() * 49) + 1));
+        while (apuesta.size() < 5) {
+            int numero = (int) ((Math.random() * 49) + 1);
+            if (!apuesta.contains(numero)) {
+                apuesta.add(numero);
+            }
         }
         return apuesta;
     }

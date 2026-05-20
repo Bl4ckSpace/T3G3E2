@@ -1,8 +1,9 @@
 package guardadoApuestas;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Jugador {
+public class Jugador implements Serializable {
     private String nombre;
     private ArrayList<Integer> apuesta;
 
@@ -21,10 +22,6 @@ public class Jugador {
 
     @Override
     public String toString() {
-        StringBuilder apuestaCadena = new StringBuilder();
-        for (Integer apuesta : this.apuesta) {
-            apuestaCadena.append(apuesta);
-        }
-        return this.nombre+" -> "+apuestaCadena;
+        return this.nombre+" -> "+this.apuesta;
     }
 }
