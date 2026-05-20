@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="GeneracionApuesta:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/GeneracionApuesta_jar</output-path>
+    <root id="archive" name="T3G3E2.jar">
+      <element id="module-output" name="T3G3E2" />
+    </root>
+  </artifact>
+</component>
