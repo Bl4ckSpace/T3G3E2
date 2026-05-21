@@ -17,7 +17,7 @@ public class GestionApuestas {
                 nombre = teclado.nextLine();
 
                 while (nombre.isEmpty() || nombre.equals(" ")) {
-                    System.out.println("Nombre inválido, escribe otro: ");
+                    System.out.println("Por favor, escribe el nombre del jugador "+numJugadores+": ");
                     nombre = teclado.nextLine();
                 }
 
