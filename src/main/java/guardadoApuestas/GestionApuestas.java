@@ -13,7 +13,7 @@ public class GestionApuestas {
         try (Scanner teclado = new Scanner(System.in)) {
             while (!nombre.equalsIgnoreCase("INTRO")) {
                 ArrayList<Integer> apuesta = new ArrayList<>();
-                System.out.print("Escribe tu nombre: ");
+                System.out.print("Nombre del jugador "+numJugadores+": ");
                 nombre = teclado.nextLine();
 
                 while (nombre.isEmpty() || nombre.equals(" ")) {
